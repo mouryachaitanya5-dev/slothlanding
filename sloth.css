@@ -7,7 +7,7 @@
 body {
   font-family: "Georgia", "Times New Roman", serif;
   background: linear-gradient(to bottom, #6b7f24 0%, #f3f3f3 100%);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@ body {
 .page {
   width: 100%;
   max-width: 1200px;
-  height: 90vh;
+  min-height: 90vh;
   padding: 30px 40px;
   position: relative;
 }
@@ -82,13 +82,13 @@ body {
   line-height: 0.8;
 }
 
-/* adjust image name/path to your file */
 .sloth-image {
   position: absolute;
   left: 50%;
   top: 8%;
   transform: translateX(-50%);
   max-height: 110%;
+  width: auto;
   filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.7));
 }
 
@@ -102,4 +102,119 @@ body {
   font-size: 32px;
   font-weight: 600;
   color: #222;
+  text-align: center;
+}
+
+/* =========================
+   RESPONSIVE LAYOUT
+   ========================= */
+
+/* Tablets / small laptops */
+@media (max-width: 1024px) {
+  .page {
+    padding: 24px 24px;
+  }
+
+  .top-bar {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
+  .center-area {
+    height: 55vh;
+  }
+
+  .big-404 {
+    padding: 0 24px;
+    font-size: clamp(90px, 18vw, 200px);
+  }
+
+  .sloth-image {
+    top: 12%;
+    max-height: 100%;
+  }
+
+  .bottom-text {
+    font-size: 26px;
+  }
+}
+
+/* Large phones / portrait tablets */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .page {
+    min-height: 100vh;
+    padding: 20px 18px 32px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 18px;
+  }
+
+  .back-home {
+    font-size: 16px;
+  }
+
+  .center-area {
+    margin-top: 20px;
+    height: 50vh;
+  }
+
+  .big-404 {
+    padding: 0 10px;
+    font-size: clamp(70px, 26vw, 140px);
+    opacity: 0.6;
+  }
+
+  .sloth-image {
+    top: 18%;
+    max-height: none;
+    width: 80vw;
+  }
+
+  .bottom-text {
+    bottom: 18px;
+    font-size: 22px;
+    padding: 0 16px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .page {
+    padding: 18px 14px 28px;
+  }
+
+  .top-bar {
+    font-size: 16px;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .center-area {
+    height: 46vh;
+  }
+
+  .big-404 {
+    font-size: 26vw;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .sloth-image {
+    top: 22%;
+    width: 88vw;
+  }
+
+  .bottom-text {
+    font-size: 18px;
+  }
 }
